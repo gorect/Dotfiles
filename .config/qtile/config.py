@@ -75,18 +75,18 @@ keys = [
     Key([mod], "Escape", lazy.spawn('xkill')),
     Key([mod], "Return", lazy.spawn('termite')),
     Key([mod], "KP_Enter", lazy.spawn('termite')),
-    Key([mod], "F1", lazy.spawn('vivaldi-stable')),
-    Key([mod], "F2", lazy.spawn('atom')),
-    Key([mod], "F3", lazy.spawn('inkscape')),
-    Key([mod], "F4", lazy.spawn('gimp')),
-    Key([mod], "F5", lazy.spawn('meld')),
-    Key([mod], "F6", lazy.spawn('vlc --video-on-top')),
-    Key([mod], "F7", lazy.spawn('virtualbox')),
-    Key([mod], "F8", lazy.spawn('thunar')),
-    Key([mod], "F9", lazy.spawn('evolution')),
-    Key([mod], "F10", lazy.spawn("spotify")),
-    Key([mod], "F11", lazy.spawn('rofi -show run -fullscreen')),
-    Key([mod], "F12", lazy.spawn('rofi -show run')),
+    #Key([mod], "F1", lazy.spawn('vivaldi-stable')),
+    #Key([mod], "F2", lazy.spawn('atom')),
+    #Key([mod], "F3", lazy.spawn('inkscape')),
+    #Key([mod], "F4", lazy.spawn('gimp')),
+    #Key([mod], "F5", lazy.spawn('meld')),
+    #Key([mod], "F6", lazy.spawn('vlc --video-on-top')),
+    #Key([mod], "F7", lazy.spawn('virtualbox')),
+    #Key([mod], "F8", lazy.spawn('thunar')),
+    #Key([mod], "F9", lazy.spawn('evolution')),
+    #Key([mod], "F10", lazy.spawn("spotify")),
+    #Key([mod], "F11", lazy.spawn('rofi -show run -fullscreen')),
+    #Key([mod], "F12", lazy.spawn('rofi -show run')),
 
 # SUPER + SHIFT KEYS
 
@@ -193,6 +193,7 @@ keys = [
     Key([mod], "k", lazy.layout.down()),
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
+  #  Key([mod], "h", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc='Expand window (monadTall), increase number in master pane (Tile)')
 
 
 # RESIZE UP, DOWN, LEFT, RIGHT
@@ -246,16 +247,16 @@ keys = [
 #    Key([mod, "shift"], "f", lazy.layout.flip()),
 
 # FLIP LAYOUT FOR BSP
-    Key([mod, "mod1"], "k", lazy.layout.flip_up()),
-    Key([mod, "mod1"], "j", lazy.layout.flip_down()),
-    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
-    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
+#    Key([mod, "mod1"], "k", lazy.layout.flip_up()),
+#    Key([mod, "mod1"], "j", lazy.layout.flip_down()),
+#    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
+#    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
 
 # MOVE WINDOWS UP OR DOWN BSP LAYOUT
-    Key([mod, "shift"], "j", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
+#    Key([mod, "shift"], "j", lazy.layout.shuffle_up()),
+#    Key([mod, "shift"], "k", lazy.layout.shuffle_down()),
+#    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+#    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
 # MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
@@ -279,7 +280,6 @@ group_labels = ["", "", "", "", "", "", "", "", "", "
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
-#group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
 
 for i in range(len(group_names)):
     groups.append(
@@ -318,11 +318,11 @@ layout_theme = init_layout_theme()
 layouts = [
     layout.MonadTall(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
     layout.MonadWide(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
-    layout.Matrix(**layout_theme),
-    layout.Bsp(**layout_theme),
-    layout.Floating(**layout_theme),
-    layout.RatioTile(**layout_theme),
-    layout.Max(**layout_theme)
+    layout.Matrix(**layout_theme)
+#    layout.Bsp(**layout_theme),
+#    layout.Floating(**layout_theme),
+#    layout.RatioTile(**layout_theme),
+#    layout.Max(**layout_theme)
 ]
 
 # COLORS FOR THE BAR
@@ -678,8 +678,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'dialog'},
     {'wmclass': 'download'},
     {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
+    {'wmclass': 'file_progress'}, {'wmclass': 'notification'},
     {'wmclass': 'splash'},
     {'wmclass': 'toolbar'},
     {'wmclass': 'confirmreset'},
