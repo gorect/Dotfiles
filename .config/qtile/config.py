@@ -274,7 +274,7 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
 #group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-group_labels = ["", "", "", "", "", "", "", "", "", "",]
+group_labels = ["", "", "", "", "", "", "", "", "", "",]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
@@ -307,7 +307,7 @@ for i in groups:
 def init_layout_theme():
     return {"margin":5,
             "border_width":2,
-            "border_focus": "#5e81ac",
+            "border_focus": "#1141ac",
             "border_normal": "#4c566a"
             }
 
@@ -329,15 +329,15 @@ layouts = [
 def init_colors():
     return [["#2F343F", "#2F343F"], # color 0
             ["#2F343F", "#2F343F"], # color 1
-            ["#c0c5ce", "#c0c5ce"], # color 2
+            ["#b7b8b9", "#b7b8b9"], # color 2
             ["#fba922", "#fba922"], # color 3
-           # ["#3384d0", "#3384d0"], # color 4
-            ["#1a75c9", "#1a75c9"], # color 4
+            ["#3182db", "#3182db"], # color 4
             ["#f3f4f5", "#f3f4f5"], # color 5
-            ["#cd1f3f", "#cd1f3f"], # color 6
-            ["#62FF00", "#62FF00"], # color 7
-            ["#6790eb", "#6790eb"], # color 8
+            ["#e31a1c", "#e31a1c"], # color 6
+            ["#228B22", "#228B22"], # color 7
+            ["#80b1d3", "#80b1d3"], # color 8
             ["#a9a9a9", "#a9a9a9"]] # color 9
+              
 
 
 colors = init_colors()
@@ -408,26 +408,6 @@ def init_widgets_list():
                #          foreground = colors[2],
                #          background = colors[1]
                #          ),
-               # widget.NetGraph(
-               #          font="Noto Sans",
-               #          fontsize=12,
-               #          bandwidth="down",
-               #          interface="auto",
-               #          fill_color = colors[8],
-               #          foreground=colors[2],
-               #          background=colors[1],
-               #          graph_color = colors[8],
-               #          border_color = colors[2],
-               #          padding = 0,
-               #          border_width = 1,
-               #          line_width = 1,
-               #          ),
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
                # # do not activate in Virtualbox - will break qtile
                # widget.ThermalSensor(
                #          foreground = colors[5],
@@ -437,22 +417,7 @@ def init_widgets_list():
                #          padding = 3,
                #          threshold = 80
                #          ),
-               # # battery option 1  ArcoLinux Horizontal icons do not forget to import arcobattery at the top
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
-               # arcobattery.BatteryIcon(
-               #          padding=0,
-               #          scale=0.7,
-               #          y_poss=2,
-               #          theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
-               #          update_interval = 5,
-               #          background = colors[1]
-               #          ),
-               # # battery option 2  from Qtile
+               # # battery for Qtile
                # widget.Sep(
                #          linewidth = 1,
                #          padding = 10,
@@ -514,6 +479,56 @@ def init_widgets_list():
                         ),
                widget.TextBox(
                         font="FontAwesome",
+                        text="  ",
+                        foreground=colors[7],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=30,
+                        ),
+               widget.NetGraph(
+                         font="Noto Sans",
+                         fontsize=12,
+                         bandwidth="down",
+                         interface="auto",
+                         fill_color = colors[8],
+                         foreground=colors[2],
+                         background=colors[1],
+                         graph_color = colors[8],
+                         border_color = colors[2],
+                         padding = 0,
+                         border_width = 1,
+                         line_width = 1,
+                         ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1],
+                        ),
+               widget.TextBox(
+                        font ="FontAwesome",
+                        text="  ",
+                        foreground=colors[6],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16,
+                        ),
+               widget.ThermalSensor(
+                         foreground = colors[5],
+                         foreground_alert = colors[6],
+                         background = colors[1],
+                         metric = True,
+                         padding = 3,
+                         threshold = 80
+                         ),
+                widget.Sep(
+                         linewidth = 1,
+                         padding = 10,
+                         foreground = colors[2],
+                         background = colors[1]
+                         ),
+               widget.TextBox(
+                        font="FontAwesome",
                         text="  ",
                         foreground=colors[3],
                         background=colors[1],
@@ -524,8 +539,29 @@ def init_widgets_list():
                         foreground = colors[5],
                         background = colors[1],
                         fontsize = 12,
-                        format="%m-%d-%Y | %I:%M %p"
+                        format="%m-%d-%Y "
                         ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[8],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16
+                        ),
+               widget.Clock(
+                        foreground = colors[5],
+                        background = colors[1],
+                        fontsize = 12,
+                        format=" %I:%M %p"
+                        ),
+
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
@@ -619,8 +655,6 @@ def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
-@hook.subscribe.startup
-def start_always():
     # Set the cursor to something sane in X
     subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
 
