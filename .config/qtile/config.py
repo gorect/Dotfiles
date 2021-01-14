@@ -44,7 +44,7 @@ keys = [
 
 # SUPER + FUNCTION KEYS
 
-    Key([mod], "e", lazy.spawn('sudo etcher')),
+    Key([mod], "e", lazy.spawn('atom')),
     Key([mod], "c", lazy.spawn('conky-toggle')),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "m", lazy.spawn('pragha')),
