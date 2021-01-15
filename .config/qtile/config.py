@@ -466,7 +466,7 @@ def init_widgets_list():
                         foreground=colors[7],
                         background=colors[1],
                         padding = 0,
-                        fontsize=30,
+                        fontsize=22,
                         ),
                widget.NetGraph(
                          font="Noto Sans",
