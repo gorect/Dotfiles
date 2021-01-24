@@ -15,7 +15,7 @@ from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.widget import Spacer
-#import arcobattery
+import arcobattery
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -75,6 +75,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.spawn('thunar')),
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#0c0d0e' -nf '#3182db' -sb '#b7b8b9' -sf '#191919' -fn 'UbuntuMonoRegular:bold:pixelsize=18.5'")),
     # OLD DMENU # Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
+    Key([mod, "shift"], "g", lazy.spawn('gimp')),
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "f", lazy.spawn('firefox')),
@@ -391,29 +392,8 @@ def init_widgets_list():
                #          foreground = colors[2],
                #          background = colors[1]
                #          ),
-               # # do not activate in Virtualbox - will break qtile
-               # widget.ThermalSensor(
-               #          foreground = colors[5],
-               #          foreground_alert = colors[6],
-               #          background = colors[1],
-               #          metric = True,
-               #          padding = 3,
-               #          threshold = 80
-               #          ),
-               # # battery for Qtile
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
-               # widget.Battery(
-               #          font="Noto Sans",
-               #          update_interval = 10,
-               #          fontsize = 12,
-               #          foreground = colors[5],
-               #          background = colors[1],
-	           #          ),
+               
+               # CPU Usage
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
@@ -438,6 +418,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
+               # Memory Usage
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
@@ -460,6 +441,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
+               # Network Activity Graph
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
@@ -488,6 +470,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1],
                         ),
+               # Temps
                widget.TextBox(
                         font ="FontAwesome",
                         text="  ",
@@ -510,6 +493,7 @@ def init_widgets_list():
                          foreground = colors[2],
                          background = colors[1]
                          ),
+               # Date
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
@@ -530,6 +514,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
+               # Time/Clock
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
@@ -544,13 +529,35 @@ def init_widgets_list():
                         fontsize = 12,
                         format=" %I:%M %p"
                         ),
-
                widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
+                         linewidth = 1,
+                         padding = 10,
+                         foreground = colors[2],
+                         background = colors[1]
+                         ),
+               # Battery
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[2],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16
                         ),
+                widget.Battery(
+                         font="Noto Sans",
+                         update_interval = 10,
+                         fontsize = 12,
+                         foreground = colors[5],
+                         background = colors[1],
+	                     ),
+               widget.Sep(
+                         linewidth = 1,
+                         padding = 10,
+                         foreground = colors[2],
+                         background = colors[1]
+                         ),
+               # Systray
                widget.Systray(
                         background=colors[1],
                         icon_size=20,
