@@ -51,6 +51,8 @@ yay -S paru
 ## Install packages from packages.txt
 #############################################################################
 
+echo "paru -Syyu"
+paru -Syyu
 echo "paru -S - < packages.txt"
 paru -S - < packages.txt
 
