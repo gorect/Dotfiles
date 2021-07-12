@@ -1,0 +1,10 @@
+#!/bin/bash
+#This script will help setup the macfanctld service to keep your MBP or similar Mac product.
+
+paru -Syyu
+paru -S macfanctld
+
+sudo systemctl start mbpfanctld.service
+sudo mv macfanctld.conf /etc/macfanctl.conf
+sudo systemctl enable mbpfanctld.service
+sudo systemctl start mbpfanctld.service
